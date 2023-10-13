@@ -66,8 +66,10 @@ public class Main {
         review.setRating(4);
         review.setMassege("dsjfklsdjaklsdj skajfaskjfl saklfjasfja kasjflaj ");
 
-
         reviewService.createReview(user, product, review);
+        reviewService.createReview(user, product, review);
+
+        System.out.println(reviewService.getReviews(review));
 
 
 

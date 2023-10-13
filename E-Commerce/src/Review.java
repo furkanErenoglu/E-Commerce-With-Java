@@ -5,12 +5,12 @@ public class Review {
     private String reviewId;
     private User user;
     private Product product;
-    private Map<String , String> comment;
+    private Map<String , String> reviews;
     private int rating;
     private String massege;
 
     public Review(){
-        this.comment = new HashMap<>();
+        this.reviews = new HashMap<>();
     }
 
     public String getReviewId() {
@@ -37,12 +37,12 @@ public class Review {
         this.product = product;
     }
 
-    public Map<String , String> getComment() {
-        return comment;
+    public Map<String , String> getReviews() {
+        return reviews;
     }
 
-    public void setComment(Map<String , String> comment) {
-        this.comment = comment;
+    public void setReviews(Map<String , String> reviews) {
+        this.reviews = reviews;
     }
 
     public int getRating() {
