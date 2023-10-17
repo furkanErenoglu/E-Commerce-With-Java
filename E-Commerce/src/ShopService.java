@@ -1,21 +1,21 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShopService {
-    private CategoryService categoryService;
-    public ShopService(CategoryService categoryService){
-        this.categoryService = categoryService;
+    List<Shop> shops = new ArrayList<>();
+
+    public void addShop(Shop shop){
+        shops.add(shop);
     }
 
-    public void addProduct(Shop shop, Product product, Category category){
-        product.setShop(shop);
-        shop.getProductList().add(product);
-        categoryService.choiceCategory(category,product);
-    }
-
-    public List<Product> getProducts(Shop shop){
+    public List<Product> getShops(Shop shop){
         return shop.getProductList();
     }
 
+    public void addProduct(Shop shop, Product product){
+        shop.getProductList().add(product);
+        System.out.println("product added");
+    }
 
 
 }

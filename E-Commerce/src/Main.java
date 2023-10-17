@@ -1,9 +1,11 @@
 public class Main {
     public static void main(String[] args) {
+        ShopService shopService = new ShopService();
+        ProductService productService = new ProductService(shopService);
         CategoryService categoryService= new CategoryService();
-        ReviewService reviewService = new ReviewService();
+        ReviewService reviewService = new ReviewService(productService);
         UserService userService = new UserService();
-        ShopService shopService = new ShopService(categoryService);
+
 
 
         User user =new User();
@@ -21,6 +23,19 @@ public class Main {
         newUser.setFullName("Begum Erogenous");
         newUser.setPassword("123456789");
 
+        userService.addUser(user);
+        userService.addUser(newUser);
+
+
+
+        Category category = new Category();
+        category.setName("Shoes");
+        category.setCategoryId("789456123");
+
+        categoryService.addCategory(category);
+
+
+
 
 
         Shop shop = new Shop();
@@ -32,12 +47,18 @@ public class Main {
         newShop.setFullName("Nike");
 
 
+        shopService.addShop(shop);
+        shopService.addShop(newShop);
+
+
+
         Product product = new Product();
         product.setProductId("45678913");
         product.setName("Adidas Superstar");
         product.setPrice(59.99);
         product.setDescription("jksdfjklaj asjkldasjd sfjklasjfla asfkljasfsaasdk skdaldsa");
         product.setStockAmount(100);
+
 
         Product newProduct = new Product();
         newProduct.setProductId("45678913");
@@ -46,15 +67,11 @@ public class Main {
         newProduct.setDescription("jksdfjklaj asjkldasjd sfjklasjfla asfkljasfsaasdk skdaldsa");
         newProduct.setStockAmount(100);
 
-        Category category = new Category();
-        category.setName("Shoes");
-        category.setCategoryId("789456123");
+
+        productService.addProduct(shop, product);
+        productService.addProduct(newShop, newProduct);
 
 
-
-
-        shopService.addProduct(shop,product,category);
-        shopService.addProduct(newShop, newProduct, category);
 
         userService.buyProduct(user, product);
         userService.buyProduct(user, newProduct);
@@ -63,13 +80,24 @@ public class Main {
 
         Review review = new Review();
         review.setReviewId("147258369");
-        review.setRating(4);
+        review.setRating((short) 4);
         review.setMassege("dsjfklsdjaklsdj skajfaskjfl saklfjasfja kasjflaj ");
+        review.setProductId(product.getProductId());
+        review.setUser(user);
 
-        reviewService.createReview(user, product, review);
-        reviewService.createReview(user, product, review);
+        Review newReview = new Review();
+        newReview.setReviewId("123456789");
+        newReview.setRating((short) 5);
+        newReview.setMassege("Mahmut tuncer show");
+        newReview.setProductId(product.getProductId());
+        newReview.setUser(newUser);
 
-        System.out.println(reviewService.getReviews(review));
+        reviewService.createReview(user.getId(), product.getProductId(), review );
+        reviewService.createReview(newUser.getId(), product.getProductId(), newReview);
+
+
+        System.out.println(product.getReviews());
+
 
 
 

@@ -4,10 +4,11 @@ import java.util.Map;
 public class Review {
     private String reviewId;
     private User user;
-    private Product product;
     private Map<String , String> reviews;
-    private int rating;
+    private short rating;
+    private String productId;
     private String massege;
+
 
     public Review(){
         this.reviews = new HashMap<>();
@@ -29,14 +30,6 @@ public class Review {
         this.user = user;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
     public Map<String , String> getReviews() {
         return reviews;
     }
@@ -45,13 +38,22 @@ public class Review {
         this.reviews = reviews;
     }
 
-    public int getRating() {
+    public short getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(short rating) {
         this.rating = rating;
     }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
 
     public String getMassege() {
         return massege;

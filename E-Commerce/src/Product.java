@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Product {
     private String productId;
     private String name;
@@ -5,7 +10,12 @@ public class Product {
     private int stockAmount;
     private double price;
     private Category category;
+    private Map<String ,String> reviews;
     private Shop shop;
+
+    public Product(){
+        this.reviews = new HashMap<>();
+    }
 
     public String getProductId(){
         return productId;
@@ -49,6 +59,14 @@ public class Product {
 
     public Category getCategory() {
         return category;
+    }
+
+    public Map<String ,String> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Map<String, String> reviews) {
+        this.reviews = reviews;
     }
 
     public void setCategory(Category category) {

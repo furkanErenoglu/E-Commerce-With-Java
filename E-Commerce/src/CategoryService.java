@@ -1,17 +1,20 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryService {
+    List<Category> categories = new ArrayList<>();
 
+    public void addCategory(Category category){
+        categories.add(category);
+        System.out.println("Category added successfully");
+    }
 
-    public void choiceCategory(Category category, Product product){
-        product.setCategory(category);
-        category.getProductList().add(product);
-        System.out.println("Product added succsesfully ");
+    public List<Category> getCategories(){
+        return categories;
     }
 
 
-
-    public List<Product> getCategoryProducts(Category category){
+    public List<Product> getCategory(Category category){
         return category.getProductList();
     }
 
