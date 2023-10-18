@@ -21,8 +21,12 @@ public class ReviewService {
         return reviews;
     }
 
-    public String getReviewMessage(Review review){
-        return review.getMassege();
+    public String getReviewMessage(String reviewId){
+        for (Review review : reviews.values())
+            if (review.getReviewId().equals(reviewId)) {
+                return review.getMassege();
+            }
+        return null;
     }
 }
 

@@ -12,7 +12,7 @@ public class ProductService {
 
     public void addProduct(Shop shop ,Product product ){
         products.add(product);
-        shopService.addProduct(shop, product);
+        shopService.addProduct(shop.getShopId(), product);
 
     }
 

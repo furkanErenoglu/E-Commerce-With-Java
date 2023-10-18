@@ -8,13 +8,26 @@ public class ShopService {
         shops.add(shop);
     }
 
-    public List<Product> getShops(Shop shop){
-        return shop.getProductList();
+    public Shop getShopById(String shopId){
+        for (Shop shop : shops){
+            if (shop.getShopId().equals(shopId)){
+                return shop;
+            }
+        }
+        return null;
     }
 
-    public void addProduct(Shop shop, Product product){
-        shop.getProductList().add(product);
-        shop.getCategoryList().add(product.getCategory());
+
+    public List<Product> getShops(String shopId) {
+        return getShopById(shopId).getProductList();
+    }
+
+
+
+
+    public void addProduct(String shopId, Product product){
+        getShopById(shopId).getProductList().add(product);
+        getShopById(shopId).getCategoryList().add(product.getCategory());
         System.out.println("product added");
     }
 

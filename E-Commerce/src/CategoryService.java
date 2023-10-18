@@ -13,9 +13,17 @@ public class CategoryService {
         return categories;
     }
 
+    public Category getCategoryById(String categoryId){
+        for (Category category: categories){
+            if (category.getCategoryId().equals(categoryId)){
+                return category;
+            }
+        }
+        return null;
+    }
 
-    public List<Product> getCategoryBasedProducts(Category category){
-        return category.getProductList();
+    public List<Product> getCategoryBasedProducts(String categoryId){
+        return getCategoryById(categoryId).getProductList();
     }
 
 
