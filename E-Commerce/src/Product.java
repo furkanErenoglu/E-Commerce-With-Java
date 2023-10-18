@@ -10,7 +10,7 @@ public class Product {
     private int stockAmount;
     private double price;
     private Category category;
-    private Map<String ,String> reviews;
+    private Map<String ,Review> reviews;
     private Shop shop;
 
     public Product(){
@@ -61,11 +61,11 @@ public class Product {
         return category;
     }
 
-    public Map<String ,String> getReviews() {
+    public Map<String ,Review> getReviews() {
         return reviews;
     }
 
-    public void setReviews(Map<String, String> reviews) {
+    public void setReviews(Map<String, Review> reviews) {
         this.reviews = reviews;
     }
 

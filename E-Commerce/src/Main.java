@@ -42,9 +42,11 @@ public class Main {
         shop.setShopId("123456789");
         shop.setFullName("Adidas");
 
+
         Shop newShop = new Shop();
         newShop.setShopId("321456789");
         newShop.setFullName("Nike");
+
 
 
         shopService.addShop(shop);
@@ -60,12 +62,14 @@ public class Main {
         product.setStockAmount(100);
 
 
+
         Product newProduct = new Product();
         newProduct.setProductId("45678913");
         newProduct.setName("Nike Airforce");
         newProduct.setPrice(49.99);
         newProduct.setDescription("jksdfjklaj asjkldasjd sfjklasjfla asfkljasfsaasdk skdaldsa");
         newProduct.setStockAmount(100);
+
 
 
         productService.addProduct(shop, product);
@@ -96,7 +100,9 @@ public class Main {
         reviewService.createReview(newUser.getId(), product.getProductId(), newReview);
 
 
+        System.out.println(reviewService.getReviews());
         System.out.println(product.getReviews());
+
 
 
 

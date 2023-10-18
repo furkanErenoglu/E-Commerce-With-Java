@@ -8,8 +8,8 @@ public class UserService {
         users.add(user);
     }
 
-    public void addFavorite(User user, Product product){
-        user.getFavorite().add(product);
+    public void addFavorite(String userId, Product product){
+        getUserById(userId).getFavorite().add(product);
     }
 
     public void buyProduct(User user, Product product){

@@ -5,9 +5,11 @@ public class Shop {
     private String shopId;
     private String fullName;
     private List<Product> productList;
+    private List<Category> categoryList;
 
     public Shop(){
         this.productList = new ArrayList<>();
+        this.categoryList = new ArrayList<>();
     }
 
     public String getShopId(){
@@ -32,5 +34,13 @@ public class Shop {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public List<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(List<Category> categoryList) {
+        this.categoryList = categoryList;
     }
 }

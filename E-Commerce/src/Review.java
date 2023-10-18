@@ -4,15 +4,10 @@ import java.util.Map;
 public class Review {
     private String reviewId;
     private User user;
-    private Map<String , String> reviews;
     private short rating;
     private String productId;
     private String massege;
 
-
-    public Review(){
-        this.reviews = new HashMap<>();
-    }
 
     public String getReviewId() {
         return reviewId;
@@ -28,14 +23,6 @@ public class Review {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Map<String , String> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(Map<String , String> reviews) {
-        this.reviews = reviews;
     }
 
     public short getRating() {

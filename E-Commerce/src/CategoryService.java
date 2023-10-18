@@ -14,7 +14,7 @@ public class CategoryService {
     }
 
 
-    public List<Product> getCategory(Category category){
+    public List<Product> getCategoryBasedProducts(Category category){
         return category.getProductList();
     }
 

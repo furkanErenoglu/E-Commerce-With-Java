@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class ReviewService {
@@ -6,16 +7,22 @@ public class ReviewService {
         this.productService = productService;
     }
 
+    private Map<String , Review> reviews = new HashMap<>();
+
 
     public void createReview(String userId, String productId, Review review){
-        if (!review.getReviews().containsKey(userId) && review.getProductId().equals(productId)){
-            review.getReviews().put(userId, review.getMassege());
-            productService.addProductReview(productId, review.getMassege());
+        if (!reviews.containsKey(userId) && review.getProductId().equals(productId)){
+            reviews.put(userId, review);
+            productService.addProductReview(productId, review, userId);
         }
     }
 
-    public Map<String , String> getReviews(Review review){
-        return review.getReviews();
+    public Map<String, Review> getReviews(){
+        return reviews;
+    }
+
+    public String getReviewMessage(Review review){
+        return review.getMassege();
     }
 }
 

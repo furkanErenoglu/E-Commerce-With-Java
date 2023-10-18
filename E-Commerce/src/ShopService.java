@@ -14,6 +14,7 @@ public class ShopService {
 
     public void addProduct(Shop shop, Product product){
         shop.getProductList().add(product);
+        shop.getCategoryList().add(product.getCategory());
         System.out.println("product added");
     }
 

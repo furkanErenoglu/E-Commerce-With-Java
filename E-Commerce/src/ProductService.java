@@ -2,12 +2,12 @@ import javax.print.attribute.HashAttributeSet;
 import java.util.*;
 
 public class ProductService {
-    private ShopService shopService;
+    private final ShopService shopService;
     ProductService(ShopService shopService){
         this.shopService = shopService;
     }
 
-    List<Product> products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
 
     public void addProduct(Shop shop ,Product product ){
@@ -25,7 +25,13 @@ public class ProductService {
         return null;
     }
 
-    public void addProductReview(String productId, String review){
-        getProductById(productId).getReviews().put(productId, review);
+    public void addProductReview(String productId,  Review review, String userId){
+        getProductById(productId).getReviews().put(userId, review);
     }
+
+    public List<Product> getAllProducts(){
+        return products;
+    }
+
+
 }
